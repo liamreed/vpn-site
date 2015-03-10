@@ -4,8 +4,6 @@ require 'PHPMailerAutoload.php';
 
 $mail = new PHPMailer;
 
-//$mail->SMTPDebug = 3;
-
 $mail->isSMTP();
 $mail->Host = 'smtp.null.nah';
 $mail->SMTPAuth = true;
