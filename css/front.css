@@ -1,0 +1,17 @@
+/** literally just front page **/
+
+.intro-header {
+    height: 92%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.intro-message>h1 {
+    font-family: 'Megrim', cursive;
+}
+
+footer {
+    padding: 0;
+    background-color: rgba(248, 248, 248, 0);
+    text-align: center;
+}
