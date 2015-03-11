@@ -116,7 +116,7 @@
         </div>
       </fieldset>
     <div id="sendSuccess" class="alert alert-success" role="alert" hidden="true"><strong>Thanks!</strong>     Your order inquiry has been sent!</div>
-    <div id="sendError" class="alert alert-danger" role="alert" hidden="true"><strong>Oops!</strong>     Submission does not include working SMTP details</div>
+    <div id="sendError" class="alert alert-danger" role="alert" hidden="true"><strong>Oops!</strong>     Submission does not include working SMTP details: Put $("#sendSuccess").show(); in Chrome console to see the success message</div>
     </form>
     </div>
 
