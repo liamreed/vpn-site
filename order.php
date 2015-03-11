@@ -56,7 +56,7 @@
                         <a href="features.html">Features</a>
                     </li>
                     <li>
-                        <a href="order.html">Order</a>
+                        <a href="order.php">Order</a>
                     </li>
                     <li>
                         <a href="faq.html">FAQ</a>
@@ -115,8 +115,8 @@
           </div>
         </div>
       </fieldset>
-    <div id="sendSuccess" class="alert alert-success" role="alert" hidden="true"><strong>Thanks!</strong>Your order inquiry has been sent!</div>
-    <div id="sendError" class="alert alert-error" role="alert" hidden="true"><strong>Oops!</strong>Your inquiry cannot be sent at the moment</div>
+    <div id="sendSuccess" class="alert alert-success" role="alert" hidden="true"><strong>Thanks!</strong>     Your order inquiry has been sent!</div>
+    <div id="sendError" class="alert alert-danger" role="alert" hidden="true"><strong>Oops!</strong>     Submission does not include working SMTP details</div>
     </form>
     </div>
 

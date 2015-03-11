@@ -1,8 +1,10 @@
 <?php
-// For sending automated mail from order.php //
+// For sending automated mail from order.php THIS REQUIRES REAL SMTP DETAILS WHICH ARE NOT INCLUDED //
 require 'PHPMailerAutoload.php';
 
 $mail = new PHPMailer;
+
+$mail->SMTPDebug = 1;  // debugging: 1 = errors and messages, 2 = messages only
 
 $mail->isSMTP();
 $mail->Host = 'smtp.null.nah';
@@ -14,7 +16,7 @@ $mail->Port = 587;
 
 $mail->From = 'noreply@null.nah';
 $mail->FromName = 'VPN Order System';
-$mail->addAddress('me@null.nah', 'Liam Reed');
+$mail->addAddress('me@null.no', 'Liam Reed');
 $mail->isHTML(true);
 
 $mail->Subject = $_POST['emailAddress'].=' - Order';
