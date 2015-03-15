@@ -39,7 +39,7 @@
         <div class="container topnav">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -47,7 +47,7 @@
                 </button>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="../index.html">Home</a>
@@ -56,7 +56,7 @@
                         <a href="../features.html">Features</a>
                     </li>
                     <li>
-                        <a href="../order.php">Order</a>
+                        <a href="../order.html">Order</a>
                     </li>
                     <li>
                         <a href="../faq.html">FAQ</a>
@@ -91,7 +91,7 @@
 	<a name="features"></a>
     <ul class="breadcrumb">
         <li><a>Home</a></li>
-        <li class="active"><a href="/docs/index.html">Docs</a></li>
+        <li class="active"><a href="index.html">Docs</a></li>
     </ul>
     <div class="container">
       <div class="row row-offcanvas row-offcanvas-left">
@@ -109,38 +109,88 @@
         <!-- Connecting -->
         <div class="col-xs-12 col-sm-9">
           <h3>Connecting to the VPN</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in nisi eu arcu tempus vehicula.
-            Nulla faucibus cursus metus in sagittis. Nunc elit leo, imperdiet in ligula in, euismod varius est.
-            Aenean pellentesque lorem a porttitor placerat. Vestibulum placerat nunc ac rutrum fringilla. Donec
-            arcu leo, tempus adipiscing volutpat id, congue in purus. Pellentesque scelerisque mattis nibh vel
-            semper. Sed a risus purus. Fusce pulvinar, velit eget rhoncus facilisis, enim elit vulputate nisl, a
-            euismod diam metus eu enim. Nullam congue justo vitae justo accumsan, sit amet malesuada nulla sagittis.
-            Nam neque tellus, tristique in est vel, sagittis congue turpis. Aliquam nulla lacus, laoreet dapibus
-            odio vitae, posuere volutpat magna. Nam pulvinar lacus in sapien feugiat, sit amet vestibulum enim
-            eleifend. Integer sit amet ante auctor, lacinia sem quis, consectetur nulla.</p>
+          <h2>Installing OpenVPN</h2>
+<p>OpenVPN source code and Windows installers can be <a href="/index.php/open-source/downloads.html">downloaded here</a>. Recent releases (2.2 and later) are also available as Debian and RPM packages; see the <a href="https://community.openvpn.net/openvpn">OpenVPN wiki</a> for details.</p>
+<p>For security, it's a good idea to check the <a href="/index.php/open-source/documentation/sig.html">file release signature</a> after downloading.</p>
+<p>The OpenVPN executable should be installed on both server and client machines, since the single executable provides both client and server functions.</p>
+<h3>Linux Notes (using RPM package)</h3>
+<p>If you are using a Linux distribution which supports RPM packages (SuSE, Fedora, Redhat, etc.), it's best to install using this mechanism. The easiest method is to find an existing binary RPM file for your distribution. You can also build your own binary RPM file:</p>
+<blockquote>
+<pre><strong>rpmbuild -tb openvpn-[version].tar.gz</strong></pre>
+</blockquote>
+<p>Once you have the .rpm file, you can install it with the usual</p>
+<blockquote>
+<pre><strong>rpm -ivh openvpn-[details].rpm</strong></pre>
+</blockquote>
+<p>or upgrade an existing installation with</p>
+<blockquote>
+<pre><strong>rpm -Uvh openvpn-[details].rpm</strong></pre>
+</blockquote>
+<p>Installing OpenVPN from a binary RPM package has these dependencies:</p>
+<ul>
+<li>openssl</li>
+<li>lzo</li>
+<li>pam</li>
+</ul>
+<p>Furthermore, if you are building your own binary RPM package, there are several additional dependencies:</p>
+<ul>
+<li>openssl-devel</li>
+<li>lzo-devel</li>
+<li>pam-devel</li>
+</ul>
+<p>See the <a href="/index.php/open-source/documentation/install.html#rpm">openvpn.spec</a> file for additional notes on building an RPM package for Red Hat Linux 9 or building with reduced dependencies.</p>
+<h3>Linux Notes (without RPM)</h3>
+<p>If you are using Debian, Gentoo, or a non-RPM-based Linux distribution, use your distro-specific packaging mechanism such as <strong>apt-get</strong> on Debian or <strong>emerge</strong> on Gentoo.</p>
+<p>It is also possible to install OpenVPN on Linux using the universal <strong>./configure</strong> method. First expand the .tar.gz file:</p>
+<blockquote>
+<pre><strong>tar xfz openvpn-[version].tar.gz</strong></pre>
+</blockquote>
+<p>Then cd to the top-level directory and type:</p>
+<blockquote>
+<pre><strong>./configure<br />make<br />make install</strong></pre>
+</blockquote>
+<p><a name="windows"></a></p>
+<h3>Windows Notes</h3>
+<p>OpenVPN for Windows can be installed from the self-installing exe file on the <a href="/index.php/open-source/downloads.html">OpenVPN download page</a>. Remember that OpenVPN will only run on Windows XP or later. Also note that OpenVPN must be installed and run by a user who has administrative privileges (this restriction is imposed by Windows, not OpenVPN). The restriction can be sidestepped by running OpenVPN in the background as a service, in which case even non-admin users will be able to access the VPN, once it is installed. <a href="http://openvpn.se/files/howto/openvpn-howto_run_openvpn_as_nonadmin.html">More discussion on OpenVPN + Windows privilege issues</a>.</p>
+<p>Official OpenVPN Windows installers include <a href="https://community.openvpn.net/openvpn/wiki/OpenVPN-GUI">OpenVPN-GUI</a>, which allows managing OpenVPN connections from a system tray applet. Other <a href="/index.php/open-source/documentation/graphical-user-interface.html">GUI</a> applications are also available.</p>
+<p>After you've run the Windows installer, OpenVPN is ready for use and will associate itself with files having the <strong>.ovpn</strong> extension. To run OpenVPN, you can:</p>
+<ul>
+<li>Right click on an OpenVPN configuration file (.ovpn) and select <strong>Start OpenVPN on this configuration file</strong>. Once running, you can use the <strong>F4</strong>key to exit.
+<p> </p>
+</li>
+<li>Run OpenVPN from a command prompt Window with a command such as:
+<p> </p>
+<blockquote>
+<pre><strong>openvpn myconfig.ovpn</strong></pre>
+</blockquote>
+<p>Once running in a command prompt window, OpenVPN can be stopped by the <strong>F4</strong> key.</p>
+</li>
+<li>Run OpenVPN as a service by putting one or more .ovpn configuration files in <strong>\Program Files\OpenVPN\config</strong> and starting the OpenVPN Service, which can be controlled from Start Menu -> Control Panel -> Administrative Tools -> Services.</li>
+</ul>
+<p><a href="/index.php/open-source/documentation/install.html?start=1">Additional Windows install notes.</a></p>
+<h3>Mac OS X Notes</h3>
+<p>Angelo Laub and Dirk Theisen have developed an <a href="http://code.google.com/p/tunnelblick/">OpenVPN GUI for OS X</a>.</p>
+<h3>Other OSes</h3>
+<p>Some notes are available in the <a href="/index.php/open-source/documentation/install.html?start=1">INSTALL</a> file for specific OSes. In general, the</p>
+<blockquote>
+<pre><strong>./configure<br />make<br />make install</strong></pre>
+</blockquote>
+<p>method can be used, or you can search for an OpenVPN port or package which is specific to your OS/distribution.</p>
+<hr />
 
-          <p>Vestibulum porttitor massa eget pellentesque eleifend. Suspendisse tempor, nisi eu placerat auctor,
-            est erat tempus neque, pellentesque venenatis eros lorem vel quam. Nulla luctus malesuada porttitor.
-            Fusce risus mi, luctus scelerisque hendrerit feugiat, volutpat gravida nisi. Quisque facilisis risus
-            in lacus sagittis malesuada. Suspendisse non purus diam. Nunc commodo felis sit amet tortor
-            adipiscing varius. Fusce commodo nulla quis fermentum hendrerit. Donec vulputate, tellus sed
-            venenatis sodales, purus nibh ullamcorper quam, sit amet tristique justo velit molestie lorem.</p>
+<h3>Starting the client</h3>
+<p>It's best to initially start the OpenVPN server from the command line (or on Windows, by right-clicking on the <strong>client.ovpn</strong> file), rather than start it as a daemon or service:</p>
+<blockquote>
+<pre><strong>openvpn [client config file] </strong></pre>
+</blockquote>
+<p>A normal client startup on Windows will look similar to the server output above, and should end with the <strong>Initialization Sequence Completed</strong> message.</p>
+<p>Now, try a ping across the VPN from the client. If you are using routing (i.e. <strong>dev tun</strong> in the server config file), try:</p>
+<blockquote>
+<pre><strong>ping 10.8.0.1</strong></pre>
+</blockquote>
+<p>If you are using bridging (i.e. <strong>dev tap</strong> in the server config file), try to ping the IP address of a machine on the server's ethernet subnet.</p>
+<p>If the ping succeeds, congratulations! You now have a functioning VPN.</p>
 
-          <p>Fusce sollicitudin lacus lacinia mi tincidunt ullamcorper. Aenean velit ipsum, vestibulum nec
-            tincidunt eu, lobortis vitae erat. Nullam ultricies fringilla ultricies. Sed euismod nibh quis
-            tincidunt dapibus. Nulla quam velit, porta sit amet felis eu, auctor fringilla elit. Donec
-            convallis tincidunt nibh, quis pellentesque sapien condimentum a. Phasellus purus dui, rhoncus
-            id suscipit id, ornare et sem. Duis aliquet posuere arcu a ornare. Pellentesque consequat libero
-            id massa accumsan volutpat. Fusce a hendrerit lacus. Nam elementum ac eros eu porttitor.
-            Phasellus enim mi, auctor sit amet luctus a, commodo fermentum arcu. In volutpat scelerisque
-            quam, nec lacinia libero.</p>
-
-          <p>Aliquam a lacinia orci, iaculis porttitor neque. Nullam cursus dolor tempus mauris posuere, eu
-            scelerisque sem tincidunt. Praesent blandit sapien at sem pulvinar, vel egestas orci varius.
-            Praesent vitae purus at ante aliquet luctus vel quis nibh. Mauris id nulla vitae est lacinia
-            rhoncus a vel justo. Donec iaculis quis sapien vel molestie. Aliquam sed elementum orci.
-            Vestibulum tristique tempor risus et malesuada. Sed eget ligula sed quam placerat dapibus.
-            Integer accumsan ac massa at tempus.</p>
 
         </div><!-- /.col-xs-12 main -->
     </div><!--/.row-->
@@ -187,7 +237,7 @@
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="../order.php">Order</a>
+                            <a href="../order.html">Order</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
@@ -195,7 +245,7 @@
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="/docs/index.html">Docs</a>
+                            <a href="docs/index.html">Docs</a>
                         </li>
                     </ul>
                     <p class="copyright text-muted small">Copyright &copy; anovpn 2015. All Rights Reserved</p>

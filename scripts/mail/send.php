@@ -1,5 +1,5 @@
 <?php
-// For sending automated mail from order.php THIS REQUIRES REAL SMTP DETAILS WHICH ARE NOT INCLUDED //
+// For sending automated mail from order.html THIS REQUIRES REAL SMTP DETAILS WHICH ARE NOT INCLUDED //
 require 'PHPMailerAutoload.php';
 
 $mail = new PHPMailer;
