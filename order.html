@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>VPN service - Features</title>
+    <title>AnoVpn - Order</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -37,7 +37,6 @@
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top topnav" role="navigation">
         <div class="container topnav">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -46,7 +45,6 @@
                     <span class="icon-bar"></span>
                 </button>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
@@ -66,9 +64,7 @@
                     </li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
     </nav>
 
     <!-- Header -->
@@ -81,9 +77,7 @@
                 </div>
             </div>
         </div>
-        <!-- /.container -->
     </div>
-    <!-- /.intro-header -->
 
     <!-- Page Content -->
 	<a id="features"></a>
@@ -91,14 +85,13 @@
             <li><a href="index.html">Home</a></li>
             <li>Order</li>
         </ul>
-
+    <!-- Order Form -->
     <div class="container">
     <form id="orderForm" class="form-horizontal" action="scripts/mail/send.php" method="post"> <!-- POST form contents to scripts/mail/send.php -->
       <fieldset>
         <legend>Send Order Enquiry</legend>
         <div class="alert alert-warning" role="alert"><p>If you require assistance or have pre-sale questions please email support@anovpn.com instead.</p></div>
          <p>Please include which plan you require and what country you would like the server to be in and we will get back to you.</p>
-
         <div class="form-group">
           <label for="inputEmail" class="col-lg-2 control-label">Your Email</label>
           <div class="col-lg-10">
@@ -145,9 +138,7 @@
                 </div>
             </div>
         </div>
-        <!-- /.container -->
     </div>
-    <!-- /.banner -->
 
     <!-- Footer -->
     <footer>
@@ -187,7 +178,7 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
-    <!-- Catch the form POST send and check for success (trigger alerts) -->
+    <!-- Catch the form POST and check for success (trigger alerts) -->
     <script>
             $(function() {
                 $("#orderForm").on("submit", function(e) {
