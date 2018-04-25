@@ -5,6 +5,6 @@ VPN site created for assignment
 
 ## pics
 
-[Imgur](https://i.imgur.com/S6LLwDb.jpg)
-[Imgur](https://i.imgur.com/JtyykVZ.png)
-[Imgur](https://i.imgur.com/JtyykVZ.png)
+![1](https://i.imgur.com/S6LLwDb.jpg)
+![2](https://i.imgur.com/JtyykVZ.png)
+![3](https://i.imgur.com/YVukpwG.png)
