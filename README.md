@@ -1,5 +1,5 @@
 # vpn-site
-VPN site created for assignment
+VPN site created for web design assignment
 
 -complete-
 
